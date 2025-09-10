@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AudioSource bgmSource;
+    [SerializeField] private AudioSource sfxSource;
+
+    public void PlayBGM(AudioClip clip, bool loop = true)
     {
-        
+        if (bgmSource == null) return;
+        bgmSource.clip = clip;
+        bgmSource.loop = loop;
+        bgmSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopBGM()
     {
-        
+        if (bgmSource == null) return;
+        bgmSource.Stop();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (sfxSource == null) return;
+        sfxSource.PlayOneShot(clip);
     }
 }

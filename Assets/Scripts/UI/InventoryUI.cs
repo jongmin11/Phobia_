@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : UIBase
 {
     [SerializeField] private CanvasGroup inventoryUI;
     [SerializeField] private Transform slotParent;
