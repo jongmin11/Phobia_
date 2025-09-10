@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ¼Òºñ ¾ÆÀÌÅÛ
+// ì†Œë¹„ ì•„ì´í…œ
 [CreateAssetMenu(fileName = "ConsumeData", menuName = "ItemData/Consume")]
-public class ConsumeData : ScriptableObject // ¼Òºñ ¾ÆÀÌÅÛ µ¥ÀÌÅÍ 
+public class ConsumeData : ScriptableObject // ì†Œë¹„ ì•„ì´í…œ ë°ì´í„° 
 {
     public GameObject itemObject;
     public string itemName;
     public string Description;
-    public float drug; // È¸º¹·®
+    public float drug; // íšŒë³µëŸ‰
 }
