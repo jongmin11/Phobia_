@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8757aa2b5351084ab3c0da4c938d396, type: 3}
+  m_Name: 01. Drag
+  m_EditorClassIdentifier: 
+  itemObject: {fileID: 9040303293298242484, guid: e178043756ee5cc468293b3329d0ae1b, type: 3}
+  itemName: 1
+  Description: "\uB9C8\uC57D\uC8FC\uC0AC\uAE30"
+  drug: 10

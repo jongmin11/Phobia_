@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd3b34ce7859194faf1dd610e7acb56, type: 3}
+  m_Name: 01. HandLight
+  m_EditorClassIdentifier: 
+  itemObject: {fileID: 595631014984466765, guid: 15616f7be55c96f4bbb562d871806afb, type: 3}
+  itemName: "\uC190\uC804\uB4F1"
+  description: "\uC2DC\uC57C\uB97C \uD655\uC7A5\uD574 \uC900"
+  chargeMax: 100
