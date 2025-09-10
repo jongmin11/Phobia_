@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 02. Knife
   m_EditorClassIdentifier: 
   itemObject: {fileID: 2057648202305995961, guid: 7f67d86b050dba944915e2b8e4709f81, type: 3}
-  index: 2
+  iD: 2
   itemName: "\uB098\uC774\uD504"
   Description: "\uD749\uAE30\uB85C \uC0AC\uC6A9\uB41C \uB2E8\uAC80"
-  isEndingItem: 0
+  isEnding: 0

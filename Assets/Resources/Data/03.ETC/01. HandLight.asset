@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemObject: {fileID: 595631014984466765, guid: 15616f7be55c96f4bbb562d871806afb, type: 3}
   itemName: "\uC190\uC804\uB4F1"
-  description: "\uC2DC\uC57C\uB97C \uD655\uC7A5\uD574 \uC900"
-  chargeMax: 100
+  description: "\uC2DC\uC57C\uB97C \uD655\uC7A5\uD574 \uC900\uB2E4"
+  Max: 0

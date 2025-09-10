@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 03. Tape
   m_EditorClassIdentifier: 
   itemObject: {fileID: 734165755984064386, guid: 74b771b8841c01e42aae0d89d4c2fa1b, type: 3}
-  index: 3
+  iD: 3
   itemName: "\uCE74\uC138\uD2B8\uD14C\uC774\uD504"
   Description: "\uC0B4\uC778\uC790\uC640\uC758 \uB300\uD654\uB0B4\uC6A9\uC774 \uB2F4\uACA8\uC788\uB294
     \uD14C\uC774\uD504"
-  isEndingItem: 0
+  isEnding: 0

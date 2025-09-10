@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 01. Phone
   m_EditorClassIdentifier: 
   itemObject: {fileID: 3531437480526915611, guid: fabdac1e21eec954fad10b2a6a642a47, type: 3}
-  index: 1
+  iD: 1
   itemName: "\uD578\uB4DC\uD3F0"
   Description: "\uC0B4\uC778\uC790\uC758 \uD1B5\uD654 \uB179\uC74C\uC774 \uC800\uC7A5\uB41C
     \uD578\uB4DC\uD3F0"
-  isEndingItem: 0
+  isEnding: 0

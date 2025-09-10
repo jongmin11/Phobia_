@@ -6,8 +6,14 @@ using UnityEngine.SceneManagement;
 public class EvidenceData : ScriptableObject // 증거 아이템 데이터
 {
     public GameObject itemObject;
-    public int index; // 스폰시 필요한 번호
+    public int iD; // 스폰시 필요한 번호
     public string itemName;
-    public string Description;
-    public bool isEndingItem;
+    [TextArea] public string Description;
+    public bool isEnding;
+
+    public bool CheckEnding()
+    {
+        return isEnding;
+    }
 }
+

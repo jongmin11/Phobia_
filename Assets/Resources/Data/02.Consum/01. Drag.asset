@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 01. Drag
   m_EditorClassIdentifier: 
   itemObject: {fileID: 9040303293298242484, guid: e178043756ee5cc468293b3329d0ae1b, type: 3}
-  itemName: 1
-  Description: "\uB9C8\uC57D\uC8FC\uC0AC\uAE30"
-  drug: 10
+  itemName: "\uB9C8\uC57D\uC8FC\uC0AC\uAE30"
+  Description: "\uC815\uC2E0\uB825\uC774 5\uC99D\uAC00 \uD569\uB2C8\uB2E4"
+  drug: 5

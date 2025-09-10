@@ -15,4 +15,4 @@ MonoBehaviour:
   itemObject: {fileID: 5078013341251816113, guid: 874cbb3e1268a4a46b5523499f01e06e, type: 3}
   itemName: "\uC5D0\uB108\uC9C0\uB4DC\uB9C1\uD06C"
   Description: "\uB9C8\uC2DC\uBA74 \uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9D1\uB2C8\uB2E4"
-  drug: 100
+  drug: 10
