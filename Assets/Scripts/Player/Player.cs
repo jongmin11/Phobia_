@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerController Controller;
+    public PlayerCondition Condition;
 
     private void Awake()
     {
-        PlayerManager.Instance.Player = this;
+        //Manager.Instance.PlayerManager.Player = this;
         Controller = GetComponent<PlayerController>();
+        Condition = GetComponent<PlayerCondition>();
     }
 }
