@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        //Manager.Instance.PlayerManager.Player = this;
+        Manager.PlayerManager.Player = this;
         Controller = GetComponent<PlayerController>();
         Condition = GetComponent<PlayerCondition>();
     }
