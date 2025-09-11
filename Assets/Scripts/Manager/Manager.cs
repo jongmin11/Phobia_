@@ -21,12 +21,14 @@ public class Manager : MonoBehaviour
     [SerializeField] private AudioManager _audio;
     [SerializeField] private ResourceManager _resource;
     [SerializeField] private SceneLoadManager _scene;
+    [SerializeField] private PlayerManager _playerManager; // Player라는 스크립트가 있어서 Manager명칭까지 정확하게 사용
     
     public static UIManager UI => Instance._ui;
     public static GameManager Game => Instance._game;
     public static AudioManager Audio => Instance._audio;
     public static ResourceManager Resource => Instance._resource;
     public static SceneLoadManager Scene => Instance._scene;
+    public static PlayerManager PlayerManager => Instance._playerManager;
 
     void Awake()
     {
@@ -43,6 +45,7 @@ public class Manager : MonoBehaviour
         if (_audio == null) _audio = GetComponentInChildren<AudioManager>(true);
         if (_resource == null) _resource = GetComponentInChildren<ResourceManager>(true);
         if (_scene == null) _scene = GetComponentInChildren<SceneLoadManager>(true);
+        if(_playerManager == null) _playerManager = GetComponentInChildren<PlayerManager>(true);
     }
 }
 

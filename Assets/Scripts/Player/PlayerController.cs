@@ -7,17 +7,25 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float Speed;
     [SerializeField] private float RunSpeed;
-    private Vector2 CurInput;
+    private float MoveX;
+    private float MoveY;
+    private Vector3 Mov;
 
     private Rigidbody _rigidbody;
 
     [Header("Look")]
     public Transform CameraContainer;
-    private float MinXLook;
-    private float MaxXLook;
+    public float MinXLook;
+    public float MaxXLook;
     private float CamCurXRot;
+    private float CamCurYRot;
     public float LookSensitivity;
-    private Vector2 MouseDelta;
+    private Vector3 LookDir;
+
+    [Header("Jump")]
+    public float JumpPower;
+    public LayerMask GroundLayerMask;
+
 
     private void Awake()
     {
@@ -34,84 +42,120 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         OnMove();
-
-
-        //else if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    //if (IsGrounded())
-        //    {
-        //        //PlayerTransform
-        //    }
-        //}
-
-
-        //else if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    //상호작용
-        //}
-
-        //else if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    //Pause
-        //}
-
-        //else if (Input.GetMouseButtonDown(0))
-        //{
-        //    //Use item
-        //}
+        OnLook();
+        OnJump();
+        //Pause();
+        //Interatcion();
+        //UseItem();
     }
 
     private void FixedUpdate()
     {
         Move();
+        Look();
     }
 
-    void Move()
+    //입력로직
+    public void OnMove()
     {
-        Vector3 dir = transform.forward * CurInput.y + transform.right * CurInput.x;
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            dir *= RunSpeed;
-        }
-        else
-        {
-            dir *= Speed;
-        }
+        float MoveX = Input.GetAxis("Horizontal");
+        float MoveY = Input.GetAxis("Vertical");
+        Mov = new Vector3(MoveX, 0, MoveY);
 
-        dir.y = _rigidbody.velocity.y;
-
-        _rigidbody.velocity = dir;
         
     }
 
-    public void OnMove()
+    // 이동로직
+    public void Move()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            CurInput = Vector2.up;
-        }
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            CurInput = Vector3.down;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            CurInput = Vector2.left;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            CurInput = Vector2.right;
+            this.transform.Translate(Mov * Time.deltaTime * RunSpeed);
         }
         else
         {
-            CurInput = Vector2.zero;
+            this.transform.Translate(Mov * Time.deltaTime * Speed);
         }
     }
 
-    // 대각선이동, normalze
-    //public void OnLook()
+    public void OnLook()
+    {
+
+        float h = Input.GetAxis("Mouse X");
+        float v = Input.GetAxis("Mouse Y");
+
+        CamCurXRot += v * LookSensitivity * Time.deltaTime;
+        CamCurYRot += h * LookSensitivity * Time.deltaTime;
+
+        CamCurXRot = Mathf.Clamp(CamCurXRot, MinXLook, MaxXLook);
+
+
+        LookDir = new Vector3(-CamCurXRot, CamCurYRot, 0);
+        
+    }
+
+    public void Look()
+    {
+        transform.eulerAngles = LookDir;
+    }
+
+    public void OnJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode.Impulse);
+        }
+    }
+
+    bool IsGrounded()
+    {
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (transform.up * 0.01f), Vector3.down)
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, GroundLayerMask))
+            {
+                return true;
+            }
+        }
+
+        return false;
+     }
+
+
+    // ESC눌렀을 때 일시정지
+    //public void Pause()
     //{
-    //    MouseDelta = Camera.Screen
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        pause창 등장
+    //    }
+    //}
+
+
+    // E키 - 상호작용
+    //public void Interatcion()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        상호작용
+    //    }
+    //}
+
+
+    //마우스 좌클릭 - 아이템 사용
+    //public void UseItem()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        들고있는 아이템 사용
+    //    }
     //}
 }
+

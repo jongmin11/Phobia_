@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,84 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &64393730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814883892171511750, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752844515785648806, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      propertyPath: m_Name
+      value: Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6752844515785648806, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 64393732}
+  m_SourcePrefab: {fileID: 100100000, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+--- !u!1 &64393731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6752844515785648806, guid: b15de9ab71e0e6b43b2e12315cf59e2d, type: 3}
+  m_PrefabInstance: {fileID: 64393730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &64393732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64393731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f119d7bcd22b4f8daee2850bdb2e224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
 --- !u!1 &181635185
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +538,7 @@ GameObject:
   - component: {fileID: 898157113}
   - component: {fileID: 898157112}
   - component: {fileID: 898157111}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,6 +665,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 4
   RunSpeed: 8
+  CameraContainer: {fileID: 0}
+  MinXLook: -60
+  MaxXLook: 60
+  LookSensitivity: 80
+  JumpPower: 95
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 375
 --- !u!54 &904970400
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -873,3 +959,4 @@ SceneRoots:
   - {fileID: 742241318}
   - {fileID: 1822363249}
   - {fileID: 1038429737}
+  - {fileID: 64393730}
