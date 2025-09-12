@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e1281931feebc2479d718913677c5fa, type: 3}
-  m_Name: Tape
+  m_Name: Syringe
   m_EditorClassIdentifier: 
-  itemName: "\uCE74\uC138\uD2B8\uD14C\uC774\uD504"
-  icon: {fileID: 21300000, guid: c72b2cb8efe57ca4085804fead85760e, type: 3}
-  itemType: 0
-  description: "\uC911\uC694\uD55C \uB0B4\uC6A9\uC774 \uB4E4\uC5B4\uC788\uB294 \uD14C\uC774\uD504\n\uBC94\uC778\uC744
-    \uCC3E\uC744 \uC99D\uAC70\uBB3C\uC774 \uB420 \uAC83 \uAC19\uB2E4."
-  itemUsageType: 0
-  value: 0
+  itemName: "\uB9C8\uC57D\uC774 \uB2F4\uAE34 \uC8FC\uC0AC\uAE30"
+  icon: {fileID: 21300000, guid: 381d1bd37ac83b647a2395e317c62d2b, type: 3}
+  itemType: 1
+  description: "\uC815\uC2E0\uB825\uC744 \uD68C\uBCF5\uC2DC\uD0A8\uB2E4."
+  itemUsageType: 1
+  value: 5

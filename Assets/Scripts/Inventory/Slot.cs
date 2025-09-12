@@ -32,13 +32,13 @@ public class Slot : MonoBehaviour
         switch (itemData.itemUsageType)
         {
             case ItemUsageType.Sanity:
-                Manager.PlayerManager.Player.Condition.conditionUI.Mentality.Add(itemData.value);
+                // Manager.PlayerManager.Player.Condition.conditionUI.Mentality.Add(itemData.value);
                 Debug.Log($"정신력 {itemData.value} 회복");
                 ClearSlot();
                 break;
 
             case ItemUsageType.Stamina:
-                Manager.PlayerManager.Player.Condition.conditionUI.Stamina.Add(itemData.value);
+                // Manager.PlayerManager.Player.Condition.conditionUI.Stamina.Add(itemData.value);
                 Debug.Log($"스태미나 {itemData.value} 회복");
                 ClearSlot();
                 break;
