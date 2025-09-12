@@ -791,7 +791,7 @@ MonoBehaviour:
   CameraContainer: {fileID: 0}
   MinXLook: -60
   MaxXLook: 60
-  LookSensitivity: 80
+  LookSensitivity: 250
   JumpPower: 95
   GroundLayerMask:
     serializedVersion: 2

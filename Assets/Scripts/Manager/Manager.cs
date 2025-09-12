@@ -16,22 +16,74 @@ public class Manager : MonoBehaviour
             return _instance;
         }
     }
+
     [SerializeField] private UIManager _ui;
     [SerializeField] private GameManager _game;
     [SerializeField] private AudioManager _audio;
     [SerializeField] private ResourceManager _resource;
     [SerializeField] private SceneLoadManager _scene;
-    [SerializeField] private PlayerManager _playerManager; // Player��� ��ũ��Ʈ�� �־ Manager��Ī���� ��Ȯ�ϰ� ���
-    
-    
-    public static UIManager UI => Instance._ui;
-    public static GameManager Game => Instance._game;
-    public static AudioManager Audio => Instance._audio;
-    public static ResourceManager Resource => Instance._resource;
-    public static SceneLoadManager Scene => Instance._scene;
-    public static PlayerManager PlayerManager => Instance._playerManager;
+    [SerializeField] private PlayerManager _playerManager;
+    public static UIManager UI
+    {
+        get
+        {
+            if (Instance._ui == null)
+                Instance._ui = Instance.GetOrAddComponent<UIManager>();
+            return Instance._ui;
+        }
+    }
 
-    void Awake()
+    public static GameManager Game
+    {
+        get
+        {
+            if (Instance._game == null)
+                Instance._game = Instance.GetOrAddComponent<GameManager>();
+            return Instance._game;
+        }
+    }
+
+    public static AudioManager Audio
+    {
+        get
+        {
+            if (Instance._audio == null)
+                Instance._audio = Instance.GetOrAddComponent<AudioManager>();
+            return Instance._audio;
+        }
+    }
+
+    public static ResourceManager Resource
+    {
+        get
+        {
+            if (Instance._resource == null)
+                Instance._resource = Instance.GetOrAddComponent<ResourceManager>();
+            return Instance._resource;
+        }
+    }
+
+    public static SceneLoadManager Scene
+    {
+        get
+        {
+            if (Instance._scene == null)
+                Instance._scene = Instance.GetOrAddComponent<SceneLoadManager>();
+            return Instance._scene;
+        }
+    }
+
+    public static PlayerManager PlayerManager
+    {
+        get
+        {
+            if (Instance._playerManager == null)
+                Instance._playerManager = Instance.GetOrAddComponent<PlayerManager>();
+            return Instance._playerManager;
+        }
+    }
+
+    private void Awake()
     {
         if (_instance != null && _instance != this)
         {
@@ -40,13 +92,13 @@ public class Manager : MonoBehaviour
         }
         _instance = this;
         DontDestroyOnLoad(gameObject);
-
-        if (_ui == null) _ui = GetComponentInChildren<UIManager>(true);
-        if (_game == null) _game = GetComponentInChildren<GameManager>(true);
-        if (_audio == null) _audio = GetComponentInChildren<AudioManager>(true);
-        if (_resource == null) _resource = GetComponentInChildren<ResourceManager>(true);
-        if (_scene == null) _scene = GetComponentInChildren<SceneLoadManager>(true);
-        if(_playerManager == null) _playerManager = GetComponentInChildren<PlayerManager>(true);
+    }
+    //컴포넌트가 없으면 가져오고 없으면 생성해서 가져옴
+    private T GetOrAddComponent<T>() where T : Component
+    {
+        var comp = GetComponentInChildren<T>(true);
+        if (comp == null)
+            comp = gameObject.AddComponent<T>();
+        return comp;
     }
 }
-

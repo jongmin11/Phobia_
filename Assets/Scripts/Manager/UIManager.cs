@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startSceneUIPrefab;
     [SerializeField] private GameObject inventoryUIPrefab;
     [SerializeField] private GameObject evidenceInventoryUIPrefab;
-    
+
 
     public StartSceneUI StartSceneUI { get; private set; }
     public InventoryUI InventoryUI { get; private set; }
@@ -23,23 +23,29 @@ public class UIManager : MonoBehaviour
         switch (scene.name)
         {
             case "InventoryTest": //일단 임시
-                Show<EvidenceInventoryUI>();
-                Show<InventoryUI>();
+                Show<EvidenceInventoryUI>("EvidenceInventoryUI",eAssetType.Prefabs,eCategoryType.UI);
+                Show<InventoryUI>("InventoryUI",eAssetType.Prefabs,eCategoryType.UI);
                 break;
         }
     }
-
-    public T Show<T>() where T : UIBase
+    public T Show<T>(string key, eAssetType type, eCategoryType categoryType) where T : UIBase
     {
-        var ui = Manager.Resource.LoadUI<T>();
-        var instance = Instantiate(ui);
+        var uiPrefab = Manager.Resource.LoadAsset<T>(key, type, categoryType);
+        if (uiPrefab == null)
+        {
+            Debug.LogError($"UIManager: {key} 프리팹 로드 실패");
+            return null;
+        }
+
+        var instance = Instantiate(uiPrefab);
 
         if (instance is InventoryUI inv)
             InventoryUI = inv;
 
         if (instance is EvidenceInventoryUI evidenceInv)
             EvidenceInventoryUI = evidenceInv;
-        
+
         return instance;
     }
+
 }

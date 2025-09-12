@@ -1,23 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum eAssetType
+{
+    Prefabs,
+    Data,
+    Fonts,
+    Animations,
+    Sounds
+}
+public enum eCategoryType
+{
+    None,
+    UI,
+    Items
+}
 public class ResourceManager : MonoBehaviour
 {
-    public Dictionary<string, UIBase> UIList = new Dictionary<string, UIBase>();
-
-    public T LoadUI<T>() where T : UIBase
+    public T LoadAsset<T>(string key, eAssetType assetType , eCategoryType categoryType = eCategoryType.None) where T : Object
     {
-        if (UIList.ContainsKey(typeof(T).Name))
-            return UIList[typeof(T).Name] as T;
+        string path = $"{assetType}{(categoryType == eCategoryType.None ? "" : $"/{categoryType}")}/{key}";
+        var obj = Resources.Load(path, typeof(T));
 
-        //딕셔너리에 값이 없으면 로드
-        var ui = Resources.Load<UIBase>($"Prefabs/UI/{typeof(T).Name}") as T;
-        if (ui == null)
+        if (obj == null)
         {
-            Debug.LogError("UI 프리팹이 없습니다");
+            Debug.LogError($"ResourceManager: {path} 로드 실패");
             return null;
         }
-        UIList.Add(ui.name, ui);
-        return ui;
+
+        return obj as T;
     }
 }
