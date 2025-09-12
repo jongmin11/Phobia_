@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2487076826580665038}
   - component: {fileID: 8152624133742986827}
   - component: {fileID: 4305762124806648402}
+  - component: {fileID: 5082510825325041627}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   _audio: {fileID: 5720936168411101999}
   _resource: {fileID: 2487076826580665038}
   _scene: {fileID: 4305762124806648402}
+  _playerManager: {fileID: 5082510825325041627}
 --- !u!114 &5720936168411101999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547ba33c3a1a141409db5f1dfda3e80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmSource: {fileID: 0}
+  sfxSource: {fileID: 0}
 --- !u!114 &6341034002770014881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6bdeec7a5257d4f8d87fad3098a5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneUIPrefeb: {fileID: 1389269062642081794, guid: b0b2d6f12ecf4df458d3317ae065a421, type: 3}
+  startSceneUIPrefab: {fileID: 1389269062642081794, guid: b0b2d6f12ecf4df458d3317ae065a421, type: 3}
+  inventoryUIPrefab: {fileID: 1359103563372873266, guid: 1b283add1db10f54cb490e857eeb3abd, type: 3}
+  evidenceInventoryUIPrefab: {fileID: 1955116395338325343, guid: 0bd66a995c2066740b572924318946c7, type: 3}
 --- !u!114 &4305762124806648402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +121,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b884dd7ddc26d3447b3e0184943aeeba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5082510825325041627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752844515785648806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f119d7bcd22b4f8daee2850bdb2e224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}

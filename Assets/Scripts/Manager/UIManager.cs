@@ -6,9 +6,12 @@ public class UIManager : MonoBehaviour
     [Header("UI Prefabs")]
     [SerializeField] private GameObject startSceneUIPrefab;
     [SerializeField] private GameObject inventoryUIPrefab;
+    [SerializeField] private GameObject evidenceInventoryUIPrefab;
+    
 
     public StartSceneUI StartSceneUI { get; private set; }
     public InventoryUI InventoryUI { get; private set; }
+    public EvidenceInventoryUI EvidenceInventoryUI { get; private set; }
     void Awake()
     {
         // 씬 로드될 때 자동으로 UI 세팅
@@ -20,6 +23,7 @@ public class UIManager : MonoBehaviour
         switch (scene.name)
         {
             case "InventoryTest": //일단 임시
+                Show<EvidenceInventoryUI>();
                 Show<InventoryUI>();
                 break;
         }
@@ -32,6 +36,9 @@ public class UIManager : MonoBehaviour
 
         if (instance is InventoryUI inv)
             InventoryUI = inv;
+
+        if (instance is EvidenceInventoryUI evidenceInv)
+            EvidenceInventoryUI = evidenceInv;
         
         return instance;
     }

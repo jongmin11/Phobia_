@@ -2,16 +2,19 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Key,
+    Evidence,
     Consumable
 }
 public enum ItemUsageType
 {
-    None,       // 효과 없음
-    Sanity,     // 정신력 회복
-    Stamina,    // 스테미나 회복
-    Inventory   // 가방 칸 증가
+    None,
+    Sanity,
+    Stamina,
+    Inventory,
+    Battery,
+    Key
 }
+
 
 [CreateAssetMenu(menuName = "Item/ItemData", fileName = "New Item")]
 public class ItemData : ScriptableObject

@@ -21,7 +21,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private AudioManager _audio;
     [SerializeField] private ResourceManager _resource;
     [SerializeField] private SceneLoadManager _scene;
-    [SerializeField] private PlayerManager _playerManager; // Player¶ó´Â ½ºÅ©¸³Æ®°¡ ÀÖ¾î¼­ Manager¸íÄª±îÁö Á¤È®ÇÏ°Ô »ç¿ë
+    [SerializeField] private PlayerManager _playerManager; // Playerï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö¾î¼­ Managerï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½
+    
     
     public static UIManager UI => Instance._ui;
     public static GameManager Game => Instance._game;
