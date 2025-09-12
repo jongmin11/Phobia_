@@ -106,8 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6bdeec7a5257d4f8d87fad3098a5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneUIPrefab: {fileID: 0}
-  inventoryUIPrefab: {fileID: 0}
+  startSceneUIPrefab: {fileID: 1389269062642081794, guid: b0b2d6f12ecf4df458d3317ae065a421, type: 3}
+  inventoryUIPrefab: {fileID: 1359103563372873266, guid: 1b283add1db10f54cb490e857eeb3abd, type: 3}
+  evidenceInventoryUIPrefab: {fileID: 1955116395338325343, guid: 0bd66a995c2066740b572924318946c7, type: 3}
 --- !u!114 &4305762124806648402
 MonoBehaviour:
   m_ObjectHideFlags: 0
