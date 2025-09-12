@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject inventoryUIPrefab;
     [SerializeField] private GameObject evidenceInventoryUIPrefab;
 
-    private Dictionary<Type, UIBase> uiDict = new();
+    private Dictionary<string, UIBase> uiDict = new();
 
     void Awake()
     {
@@ -29,33 +29,34 @@ public class UIManager : MonoBehaviour
     }
     public T Show<T>(string key, eAssetType type, eCategoryType categoryType) where T : UIBase
     {
-        if (uiDict.TryGetValue(typeof(T), out UIBase existing))
+        //딕셔너리에 있을경우 생성X
+        if (uiDict.TryGetValue(typeof(T).ToString(), out UIBase existing))
         {
             existing.OnShow();
             return (T)existing;
         }
-
-         var uiPrefab = Manager.Resource.LoadAsset<T>(key, type, categoryType);
+        //딕셔너리에 없을경우 리소스매니저를 통해 로드
+        var uiPrefab = Manager.Resource.LoadAsset<T>(key, type, categoryType);
         if (uiPrefab == null)
         {
             Debug.LogError($"UIManager: {key} 프리팹 로드 실패");
             return null;
         }
-
+        //로드 후 딕셔너리에 저장
         var instance = Instantiate(uiPrefab);
-        uiDict[typeof(T)] = instance;
+        uiDict[typeof(T).ToString()] = instance;
         instance.OnShow();
         return instance;
     }
     public void Hide<T>() where T : UIBase
     {
-        if (uiDict.TryGetValue(typeof(T), out UIBase ui))
+        if (uiDict.TryGetValue(typeof(T).ToString(), out UIBase ui))
             ui.OnHide();
     }
 
     public T Get<T>() where T : UIBase
     {
-        if (uiDict.TryGetValue(typeof(T), out UIBase ui))
+        if (uiDict.TryGetValue(typeof(T).ToString(), out UIBase ui))
             return (T)ui;
 
         return null;

@@ -4,9 +4,6 @@ public enum eAssetType
 {
     Prefabs,
     Data,
-    Fonts,
-    Animations,
-    Sounds
 }
 public enum eCategoryType
 {
