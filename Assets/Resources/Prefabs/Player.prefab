@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4018110030737267925}
   - component: {fileID: 7558619533452501777}
   - component: {fileID: 3828302470078095189}
+  - component: {fileID: 2243793813967172485}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -100,18 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdacf607618de43f4b5f962c00a1d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 4
-  RunSpeed: 8
+  playerInput: {fileID: 2243793813967172485}
   playerCondition: {fileID: 3828302470078095189}
   conditionUI: {fileID: 0}
+  Speed: 4
+  RunSpeed: 8
   CameraContainer: {fileID: 5091795671182046552}
-  MinXLook: -60
-  MaxXLook: 60
-  LookSensitivity: 80
-  JumpPower: 95
-  GroundLayerMask:
-    serializedVersion: 2
-    m_Bits: 375
 --- !u!114 &4018110030737267925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +153,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditionUI: {fileID: 0}
   GetStaminaDelay: 1
+--- !u!114 &2243793813967172485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923125869650116638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6e1f08d8ac444ecbebf5737c74a384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mov: {x: 0, y: 0, z: 0}
+  LookSensitivity: 100
+  LookDir: {x: 0, y: 0, z: 0}
+  MinXLook: -60
+  MaxXLook: 60
 --- !u!1 &1484262239198886874
 GameObject:
   m_ObjectHideFlags: 0

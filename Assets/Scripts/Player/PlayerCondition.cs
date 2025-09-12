@@ -10,6 +10,7 @@ public class PlayerCondition : MonoBehaviour
     Condition Stamina { get { return conditionUI.Stamina; } }
     Condition Mentality { get { return conditionUI.Mentality; } }
 
+
     [Header("Stamina")]
     [SerializeField] private float GetStaminaDelay = 1f;
     private float Standard = 0.0001f;
@@ -38,7 +39,6 @@ public class PlayerCondition : MonoBehaviour
         {
             // StableTimer는 스태미너 값이 변동하면 무조건 0, 변동이 아니면 GetStaminaDelay가 될때까지 시간을 더)
             StableTimer = Changed ? 0f : (StableTimer + Time.deltaTime);
-            Debug.Log(StableTimer);
 
             // GetStaminaDelay가 넘으면 스태미너 회복 가능 모드로 변환
             if (CurStamina < Stamina.MaxValue && StableTimer > GetStaminaDelay)
