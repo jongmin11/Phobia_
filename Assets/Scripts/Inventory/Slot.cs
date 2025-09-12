@@ -74,7 +74,7 @@ public class Slot : MonoBehaviour
 
             var cam = Camera.main;
             Vector3 dir = cam ? cam.transform.forward : Vector3.forward;
-            dropped.Launch(dir + Vector3.up * 0.2f, 4f, 2f);
+            dropped.Drop(dir + Vector3.up * 0.2f, 4f, 2f);
         }
 
         ClearSlot();

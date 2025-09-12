@@ -42,7 +42,7 @@ public class ItemObject : MonoBehaviour
             sr.sprite = data.icon;
         }
     }
-    public void Launch(Vector3 dir, float force, float torque)
+    public void Drop(Vector3 dir, float force, float torque)
     {
         var rb = GetComponent<Rigidbody>();
         if (!rb) return;
