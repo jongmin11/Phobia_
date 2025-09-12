@@ -19,10 +19,10 @@ public class EvidenceSlot : Slot
         if (IsEmpty) return;
 
         // 증거물 정보 UI 띄우기
-        if (Manager.UI.EvidenceInventoryUI != null)
-        {
-            Manager.UI.EvidenceInventoryUI.ShowEvidenceInfo(ItemData);
-        }
+        var evidenceUI = Manager.UI.Get<EvidenceInventoryUI>() 
+                 ?? Manager.UI.Show<EvidenceInventoryUI>("EvidenceInventoryUI", eAssetType.Prefabs, eCategoryType.UI);
+
+        evidenceUI.ShowEvidenceInfo(ItemData);
     }
 
     public override void UseItem()

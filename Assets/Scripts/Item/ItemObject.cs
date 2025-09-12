@@ -9,25 +9,17 @@ public class ItemObject : MonoBehaviour
         if (Data == null) return;
         if (itemData.itemType == ItemType.Evidence)
         {
-            if (Manager.UI.EvidenceInventoryUI != null)
-            {
-                Manager.UI.EvidenceInventoryUI.AddItem(itemData);
-            }
-            else
-            {
-                Debug.LogWarning("EvidenceInventoryUI가 연결되어 있지 않습니다!");
-            }
+            var evidenceUI = Manager.UI.Get<EvidenceInventoryUI>() 
+                            ?? Manager.UI.Show<EvidenceInventoryUI>("EvidenceInventoryUI", eAssetType.Prefabs, eCategoryType.UI);
+
+            evidenceUI.AddItem(itemData);
         }
-        else // 일반 아이템은 기본 인벤토리로
+        else
         {
-            if (Manager.UI.InventoryUI != null)
-            {
-                Manager.UI.InventoryUI.AddItem(itemData);
-            }
-            else
-            {
-                Debug.LogWarning("InventoryUI가 연결되어 있지 않습니다!");
-            }
+            var invUI = Manager.UI.Get<InventoryUI>() 
+                        ?? Manager.UI.Show<InventoryUI>("InventoryUI", eAssetType.Prefabs, eCategoryType.UI);
+
+            invUI.AddItem(itemData);
         }
 
         Destroy(gameObject);

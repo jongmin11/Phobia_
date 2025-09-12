@@ -44,7 +44,9 @@ public class Slot : MonoBehaviour
                 break;
 
             case ItemUsageType.Inventory:
-                Manager.UI.InventoryUI.AddSlot();
+                var invUI = Manager.UI.Get<InventoryUI>() 
+                            ?? Manager.UI.Show<InventoryUI>("InventoryUI", eAssetType.Prefabs, eCategoryType.UI);
+                invUI.AddSlot();
                 Debug.Log($"인벤토리 {itemData.value} 칸 증가");
                 ClearSlot();
                 break;

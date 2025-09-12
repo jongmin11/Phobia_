@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System;
+using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     [Header("UI Prefabs")]
@@ -8,10 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject inventoryUIPrefab;
     [SerializeField] private GameObject evidenceInventoryUIPrefab;
 
+    private Dictionary<Type, UIBase> uiDict = new();
 
-    public StartSceneUI StartSceneUI { get; private set; }
-    public InventoryUI InventoryUI { get; private set; }
-    public EvidenceInventoryUI EvidenceInventoryUI { get; private set; }
     void Awake()
     {
         // 씬 로드될 때 자동으로 UI 세팅
@@ -30,7 +29,13 @@ public class UIManager : MonoBehaviour
     }
     public T Show<T>(string key, eAssetType type, eCategoryType categoryType) where T : UIBase
     {
-        var uiPrefab = Manager.Resource.LoadAsset<T>(key, type, categoryType);
+        if (uiDict.TryGetValue(typeof(T), out UIBase existing))
+        {
+            existing.OnShow();
+            return (T)existing;
+        }
+
+         var uiPrefab = Manager.Resource.LoadAsset<T>(key, type, categoryType);
         if (uiPrefab == null)
         {
             Debug.LogError($"UIManager: {key} 프리팹 로드 실패");
@@ -38,14 +43,21 @@ public class UIManager : MonoBehaviour
         }
 
         var instance = Instantiate(uiPrefab);
-
-        if (instance is InventoryUI inv)
-            InventoryUI = inv;
-
-        if (instance is EvidenceInventoryUI evidenceInv)
-            EvidenceInventoryUI = evidenceInv;
-
+        uiDict[typeof(T)] = instance;
+        instance.OnShow();
         return instance;
     }
+    public void Hide<T>() where T : UIBase
+    {
+        if (uiDict.TryGetValue(typeof(T), out UIBase ui))
+            ui.OnHide();
+    }
 
+    public T Get<T>() where T : UIBase
+    {
+        if (uiDict.TryGetValue(typeof(T), out UIBase ui))
+            return (T)ui;
+
+        return null;
+    }
 }
