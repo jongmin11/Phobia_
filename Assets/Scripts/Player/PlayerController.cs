@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 Mov;
 
     private Rigidbody _rigidbody;
+    public PlayerCondition playerCondition;
+    public ConditionUI conditionUI;
+    Condition Stamina { get { return conditionUI.Stamina; } }
 
     [Header("Look")]
     public Transform CameraContainer;
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
         //Pause();
         //Interatcion();
         //UseItem();
+        //DropItem();
     }
 
     private void FixedUpdate()
@@ -62,13 +66,13 @@ public class PlayerController : MonoBehaviour
         float MoveY = Input.GetAxis("Vertical");
         Mov = new Vector3(MoveX, 0, MoveY);
 
-        
+
     }
 
     // 이동로직
     public void Move()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && playerCondition.TryConsumeStamina(Stamina.PassiveValue))
         {
             this.transform.Translate(Mov * Time.deltaTime * RunSpeed);
         }
@@ -77,6 +81,7 @@ public class PlayerController : MonoBehaviour
             this.transform.Translate(Mov * Time.deltaTime * Speed);
         }
     }
+
 
     public void OnLook()
     {
@@ -91,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
 
         LookDir = new Vector3(-CamCurXRot, CamCurYRot, 0);
-        
+
     }
 
     public void Look()
@@ -126,7 +131,7 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
-     }
+    }
 
 
     // ESC눌렀을 때 일시정지
@@ -157,5 +162,13 @@ public class PlayerController : MonoBehaviour
     //        들고있는 아이템 사용
     //    }
     //}
-}
 
+    //마우스 좌클릭 - 아이템 버리기
+    //public void DropItem()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.G))
+    //    {
+    //        들고있는 아이템 버리기
+    //    }
+    //}
+}
