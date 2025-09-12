@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        Manager.PlayerManager.Player = this;
         Controller = GetComponent<PlayerController>();
         Condition = GetComponent<PlayerCondition>();
     }
