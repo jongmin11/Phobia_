@@ -10,7 +10,7 @@ public class ConditionUI : MonoBehaviour
 
     void Start()
     {
-        Manager.PlayerManager.Player.Condition.conditionUI = this;
+        
     }
 
     // Update is called once per frame
